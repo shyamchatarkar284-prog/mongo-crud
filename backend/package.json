@@ -1,0 +1,18 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "Simple Node.js + Express REST API using CommonJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^4.19.2",
+    "mongoose": "^9.11.0"
+  }
+}
