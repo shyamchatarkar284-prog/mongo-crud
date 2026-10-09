@@ -14,7 +14,9 @@ const Blog = () => {
 
   const [selectedBlog, setSelectedBlog] = useState(null)
 
-  const API_URL = "http://localhost:5000/blog"
+  const API_URL = import.meta.env.VITE_NODE_ENV === "development"
+    ? import.meta.env.VITE_LOCAL_URL
+    : import.meta.env.VITE_LIVE_URL
 
   const schema = z.object({
     title: z.string().min(3),
@@ -30,9 +32,9 @@ const Blog = () => {
     try {
       console.log(blogdata);
       if (setAllBlogs) {
-        modifyBlog(selectedBlog._id, blogdata)  
+        modifyBlog(selectedBlog._id, blogdata)
         reset({ title: "", desc: "", hero: "" })
-        setSelectedBlog(null) 
+        setSelectedBlog(null)
       } else {
         createBlog(blogdata)
         reset()
